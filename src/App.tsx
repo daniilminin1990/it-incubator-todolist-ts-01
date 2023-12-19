@@ -15,15 +15,15 @@ function App() {
     { id: v1(), title: "REACT", isDone: false },
   ]);
 
-  // todo Стейт для фильтрации. В нем используем filter (новые отрисованные active/complete/active tasks)
+  // Стейт для фильтрации. В нем используем filter (новые отрисованные active/complete/active tasks)
   const [filterValue, setFilterValue] = useState<FilterValuesType>("all");
 
-  // todo Функция для удаления задачи по taskId
+  // Функция для удаления задачи по taskId
   const removeTask = (taskId: string) => {
     setTasks(tasks.filter((t) => t.id !== taskId));
   };
 
-  // todo Функция добавления залачи
+  //  Функция добавления залачи
   const addTask = (title: string) => {
     const newTask: TaskType = {
       id: v1(),
@@ -37,18 +37,12 @@ function App() {
     // setTasks([{id: v1(),title: title,isDone: false,}, ...tasks])
   };
 
-  // todo Функция для изменения статуса задачи
+  // Функция для изменения статуса задачи
   const changeTodoListFilter = (filterValue: FilterValuesType) => {
     setFilterValue(filterValue);
   };
 
-  // todo Функция для фильтрации задачи, где filter будет = условию
-  // const tasksForTodoList = filterValue === "active"
-  //     ? tasks.filter((t) => t.isDone === false)
-  //     : filterValue === "completed"
-  //       ? tasks.filter((t) => t.isDone === true)
-  //       : tasks;
-  // Или так --
+  // Функция для фильтрации задачи, где filter будет = условию
   const getFilterdTasks = (tasks: Array<TaskType>, filterValue: FilterValuesType): Array<TaskType> => {
     return filterValue === "active"
       ? tasks.filter((t) => t.isDone === false)
@@ -56,10 +50,9 @@ function App() {
       ? tasks.filter((t) => t.isDone === true)
       : tasks;
   };
-  // Результат положим в переменную
   const filteredTasks = getFilterdTasks(tasks, filterValue);
 
-  // ! В пропс передаем filteredTasks, потому что обычные tasks нам не нужны, т.к. они не будут фильтроваться. А фильтруются таски у нас в функции getFilterdTasks, которые мы положили в переменную filteredTasks
+  // В пропс передаем filteredTasks, потому что обычные tasks нам не нужны, т.к. они не будут фильтроваться. А фильтруются таски у нас в функции getFilterdTasks, которые мы положили в переменную filteredTasks
   return (
     <div className="App">
       <TodoList
