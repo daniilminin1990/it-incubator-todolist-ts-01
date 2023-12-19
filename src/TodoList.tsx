@@ -3,7 +3,7 @@ import Button from "./Button";
 import { FilterValuesType } from "./App";
 
 export type TaskType = {
-  id: number;
+  id: string;
   title: string;
   isDone: boolean;
 };
@@ -11,11 +11,19 @@ export type TaskType = {
 type TodoListPropsType = {
   title: string;
   tasks: Array<TaskType>;
-  removeTask: (taskId: number) => void;
+  removeTask: (taskId: string) => void;
   changeTodoListFilter: (filterValue: FilterValuesType) => void;
+  addTask: (title: string) => void;
 };
 
-const TodoList = ({ title, tasks, removeTask, changeTodoListFilter }: TodoListPropsType) => {
+// prettier-ignore
+const TodoList = ({ 
+    title, 
+    tasks, 
+    removeTask, 
+    changeTodoListFilter,
+    addTask
+  }: TodoListPropsType) => {
   // const listItems: Array<JSX.Element> = [];
 
   // for (let i = 0; i < tasks.length; i++) {
