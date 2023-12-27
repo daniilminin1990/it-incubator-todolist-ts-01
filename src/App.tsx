@@ -37,6 +37,11 @@ function App() {
         // setTasks([{id: v1(),title: title,isDone: false,}, ...tasks])
     };
 
+    const changeTaskStatus = (taskId: string, newIsDoneValue: boolean) => {
+        const nextState: Array<TaskType> = tasks.map((t: TaskType) => t.id === taskId ? { ...t, isDone: newIsDoneValue } : t)
+        setTasks(nextState)
+    }
+
     // Функция для изменения статуса задачи
     const changeTodoListFilter = (filterValue: FilterValuesType) => {
         setFilterValue(filterValue);
@@ -61,6 +66,8 @@ function App() {
                 removeTask={removeTask}
                 changeTodoListFilter={changeTodoListFilter}
                 addTask={addTask}
+                changeTaskStatus={changeTaskStatus}
+                filterValue={filterValue}
             />
         </div>
     );

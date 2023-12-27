@@ -14,3 +14,37 @@
   background-color: wheat;
   padding: 15px;
 }
+
+.task {
+  font-weight: bold;
+}
+
+.task-done {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+button {
+  border-radius: 5px;
+}
+
+.btn-active {
+  background-color: rgb(166, 144, 238);
+  color: white;
+  border: 1px solid black;
+}
+
+.btn-all {
+  background-color: rgb(227, 215, 81);
+  border: 1px solid;
+}
+
+.btn-completed {
+  background-color: lightgreen;
+  border: 1px solid;
+}
+
+.inputError {
+  border: 2px solid red;
+  outline: none;
+}
